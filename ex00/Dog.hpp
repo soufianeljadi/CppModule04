@@ -7,7 +7,9 @@ class Dog :public Animal
 {
     public:
         Dog();
-        void makeSound();
+        Dog(const Dog& copy);
+        Dog& operator=(const Dog& copy);
+        void makeSound() const;
         std::string getType() const;
         ~Dog();
 };
