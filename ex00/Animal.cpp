@@ -21,7 +21,7 @@ Animal &Animal::operator=(const Animal& copy)
 
 void Animal::makeSound() const 
 {
-        std::cout << "ana 7ayawan" << std::endl;
+    std::cout << "Animal sound" << std::endl;
 }
 
 std::string Animal::getType() const 

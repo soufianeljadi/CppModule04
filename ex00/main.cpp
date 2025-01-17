@@ -1,35 +1,37 @@
 
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongCat.hpp"
 
-int main() {
-    std::cout << "--- Correct Animal Hierarchy ---" << std::endl;
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+int main() 
+{
+    std::cout << "--- Correct Animal ---" << std::endl;
+    const Animal* animal = new Animal();
+    const Animal* dog = new Dog();
+    const Animal* cat = new Cat();
 
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
+    std::cout << dog->getType() << std::endl;
+    std::cout << cat->getType() << std::endl;
 
-    i->makeSound();
-    j->makeSound();
-    meta->makeSound();
+    cat->makeSound();
+    dog->makeSound();
+    animal->makeSound();
 
-    delete meta;
-    delete j;
-    delete i;
+    delete animal;
+    delete dog;
+    delete cat;
 
-    // std::cout << "\n--- Wrong Animal Hierarchy ---" << std::endl;
-    // const WrongAnimal* wrongMeta = new WrongAnimal();
-    // const WrongAnimal* wrongCat = new WrongCat();
+    std::cout << "\n--- Wrong Animal ---" << std::endl;
+    const WrongAnimal* wrongAnimal = new WrongAnimal();
+    const WrongAnimal* wrongCat = new WrongCat();
 
-    // std::cout << wrongCat->getType() << " " << std::endl;
+    std::cout << wrongCat->getType() <<  std::endl;
 
-    // wrongCat->makeSound(); // WrongAnimal sound
-    // wrongMeta->makeSound(); // WrongAnimal sound
+    wrongCat->makeSound();
+    wrongMeta->makeSound();
 
-    // delete wrongMeta;
-    // delete wrongCat;
+    delete wrongMeta;
+    delete wrongCat;
 
     return 0;
 }
