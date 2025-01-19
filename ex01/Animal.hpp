@@ -2,6 +2,10 @@
 # define ANIMAL_HPP
 
 #include <iostream>
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m" 
+#define DEFAULT "\033[0m"
 
 class Animal
 {

@@ -1,5 +1,5 @@
 CXX = c++
-SRC = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJ = $(SRC:.cpp=.o)
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -8,7 +8,7 @@ NAME = Brain
 
 all: $(NAME)
 
-$(NAME): $(OBJ) Cat.hpp Dog.hpp Animal.hpp WrongAnimal.hpp WrongCat.hpp
+$(NAME): $(OBJ) Cat.hpp Dog.hpp Animal.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:

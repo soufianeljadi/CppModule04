@@ -4,25 +4,26 @@
 Cat::Cat()
 {
     this->type = "Cat";
-    std::cout << "Cat default constructor called" <<std::endl;
+    this->brain = new Brain();
+    std::cout << GREEN "Cat default constructor called" DEFAULT<<std::endl;
 }
 
 Cat::Cat(const Cat& copy) : Animal(copy) 
 {
-    std::cout << "Cat copy constructor called." << std::endl;
+    std::cout << GREEN "Cat copy constructor called." DEFAULT<< std::endl;
 }
 
 Cat &Cat::operator=(const Cat& copy) 
 {
     if (this != &copy)
         Animal::operator=(copy);
-    std::cout << "Cat assignment operator called." << std::endl;
+    std::cout << GREEN "Cat assignment operator called." DEFAULT<< std::endl;
     return *this;
 }
 
 void Cat::makeSound()const
 {
-    std::cout << "Meow Meow" <<std::endl;
+    std::cout << GREEN "Meow Meow" DEFAULT<<std::endl;
 }
 
 std::string Cat::getType() const
@@ -32,5 +33,6 @@ std::string Cat::getType() const
 
 Cat::~Cat()
 {
-    std::cout << "Cat destructor called" <<std::endl;
+    delete brain;
+    std::cout << GREEN "Cat destructor called" DEFAULT<<std::endl;
 }

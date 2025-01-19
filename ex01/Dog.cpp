@@ -4,25 +4,26 @@
 Dog::Dog()
 {
     this->type = "Dog";
-    std::cout << "Dog default constructor called" <<std::endl;
+    brain = new Brain();
+    std::cout <<RED "Dog default constructor called" DEFAULT<<std::endl;
 }
 
 Dog::Dog(const Dog& copy) : Animal(copy) 
 {
-    std::cout << "Dog copy constructor called." << std::endl;
+    std::cout <<RED "Dog copy constructor called." DEFAULT<< std::endl;
 }
 
 Dog &Dog::operator=(const Dog& copy) 
 {
     if (this != &copy) 
         Animal::operator=(copy);
-    std::cout << "Dog assignment operator called." << std::endl;
+    std::cout <<RED "Dog assignment operator called." DEFAULT<< std::endl;
     return *this;
 }
 
 void Dog::makeSound() const
 {
-    std::cout << "Haw Haw" <<std::endl;
+    std::cout <<RED "Haw Haw" DEFAULT<<std::endl;
 }
 
 std::string Dog::getType() const
@@ -32,5 +33,6 @@ std::string Dog::getType() const
 
 Dog::~Dog()
 {
-    std::cout << "Dog destructor called" <<std::endl;
+    delete brain;
+    std::cout <<RED "Dog destructor called" DEFAULT<<std::endl;
 }
