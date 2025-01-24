@@ -1,14 +1,14 @@
 CXX = c++
-SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp IMateriaSource.cpp ICaracter.cpp
+SRC = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJ = $(SRC:.cpp=.o)
 RM = rm -rf
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Brain
+NAME = Materia
 
 all: $(NAME)
 
-$(NAME): $(OBJ) AMateria.hpp Ice.hpp Cure.hpp Character.hpp MateriaSource.hpp IMateriaSource.hpp ICaracter.hpp
+$(NAME): $(OBJ) AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
 	$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:

@@ -2,29 +2,25 @@
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
-#include <iostream>
+# include <iostream>
 #include "ICharacter.hpp"
-#include "Character.hpp"
-#include "IMateriaSource.hpp"
-#include "MateriaSource.hpp"
 
 class AMateria
 {
-    protected:
-        std::string _type;
-    public:
-        AMateria();
-        AMateria(std::string const & type);
-        AMateria(const AMateria& copy);
+	protected:
+		std::string type;
 
-        AMateria &operator=(const AMateria& copy);
+	public:
 
+		AMateria();
+        AMateria(const AMateria &objs);
+		AMateria(std::string const & type);
+        AMateria &operator=(const AMateria & objs);
         virtual ~AMateria();
 
-        std::string const & getType() const;
-        
-        virtual AMateria* clone() const = 0;
-        virtual void use(ICharacter& target);
+		std::string const & getType() const;
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
 };
 
 #endif

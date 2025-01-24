@@ -1,71 +1,99 @@
+
 #include "Character.hpp"
 
-Character::Character() : name("default")
+Character::Character() : name("")
 {
-    for (int i = 0; i < 4; i++)
-        inventory[i] = NULL;
+	std::cout << "Character Default constructor called" << std::endl;
+	int i = 0;
+	while (i < 4)
+	{
+		this->inventory[i] = NULL;
+		i++;
+	}
 }
 
-Character::Character(std::string name) : name(name)
+Character::Character(const std::string &name) : name(name)
 {
-    for (int i = 0; i < 4; i++)
-        inventory[i] = NULL;
+	std::cout << "Character Parametrized constructor called" << std::endl;
+	int i = 0;
+	while (i < 4)
+	{
+		this->inventory[i] = NULL;
+		i++;
+	}
 }
 
-Character::Character(const Character &c)
+Character::Character(const Character &copy) : name(copy.name)
 {
-    *this = c;
+	std::cout << "Character Copy constructor called" << std::endl;
+	int i = 0;
+	while (i < 4)
+	{
+		if (copy.inventory[i])
+			this->inventory[i] = copy.inventory[i]->clone();
+		else
+			this->inventory[i] = NULL;
+		i++;
+	}
 }
 
-Character &Character::operator=(const Character &c)
+Character &Character::operator=(const Character &copy)
 {
-    name = c.name;
-    for (int i = 0; i < 4; i++)
-    {
-        if (inventory[i])
-            delete inventory[i];
-        inventory[i] = c.inventory[i]->clone();
-    }
-    return *this;
+	std::cout << "Character Copy assignment operator called" << std::endl;
+	if (this != &copy)
+	{
+		int i = 0;
+		while (i < 4)
+		{
+			delete this->inventory[i];
+			if (copy.inventory[i])
+				this->inventory[i] = copy.inventory[i]->clone();
+			else
+				this->inventory[i] = NULL;
+			i++;
+		}
+		this->name = copy.name; 
+	}
+    return (*this);
 }
 
 Character::~Character()
 {
-    for (int i = 0; i < 4; i++)
-    {
-        if (inventory[i])
-            delete inventory[i];
-    }
+	std::cout << "Character Destructor called" << std::endl;
+	int i = 0;
+	while (i < 4)
+	{
+		delete this->inventory[i];
+		i++;
+	}
 }
 
 std::string const &Character::getName() const
 {
-    return name;
+	return (this->name);
 }
 
 void Character::equip(AMateria *m)
 {
-    for (int i = 0; i < 4; i++)
-    {
-        if (!inventory[i])
-        {
-            inventory[i] = m;
-            break;
-        }
-    }
+	int i = 0;
+	while (i < 4)
+	{
+		if (!this->inventory[i])
+		{
+			this->inventory[i] = m;
+			return ;
+		}
+		i++;
+	}
 }
 
 void Character::unequip(int idx)
 {
-    if (idx < 0 || idx >= 4 || !inventory[idx])
-        return;
-    inventory[idx] = NULL;
+	(idx >= 0 && idx <= 3) && (this->inventory[idx] = NULL);
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-    if (idx < 0 || idx >= 4 || !inventory[idx])
-        return;
-    inventory[idx]->use(target);
+	if (idx >= 0 && idx <= 3 && this->inventory[idx])
+		this->inventory[idx]->use(target);
 }
-
