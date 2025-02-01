@@ -1,7 +1,7 @@
 
 #include "Character.hpp"
 
-Character::Character() : name("")
+Character::Character() : name("default")
 {
 	std::cout << "Character Default constructor called" << std::endl;
 	int i = 0;
@@ -89,11 +89,17 @@ void Character::equip(AMateria *m)
 
 void Character::unequip(int idx)
 {
-	(idx >= 0 && idx <= 3) && (this->inventory[idx] = NULL);
+	if (idx >= 0 && idx <= 3 && this->inventory[idx])
+	{
+		delete this->inventory[idx];
+		this->inventory[idx] = NULL;
+	}
+	return ;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
 	if (idx >= 0 && idx <= 3 && this->inventory[idx])
 		this->inventory[idx]->use(target);
+	return ;
 }
