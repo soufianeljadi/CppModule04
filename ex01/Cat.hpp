@@ -10,7 +10,7 @@ class Cat :public Animal
         Brain *brain;
     public:
         Cat();
-        Cat(const Cat& other);
+        Cat(const Cat& copy);
         Cat &operator=(const Cat& copy) ;
         void makeSound()const;
         std::string getType() const;

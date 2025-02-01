@@ -1,29 +1,34 @@
 
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include <cstdlib>
 
 int main() 
 {
-    const Animal *j = new Dog();
-    const Animal *i = new Cat();
-    delete j;
-    delete i;
+    Cat d;
+    Cat k(d);
 
-    const int arraySize = 4;
-    Animal *animals[arraySize];
-    for (int k = 0; k < arraySize / 2; ++k) {
-        animals[k] = new Dog();
-    }
-    for (int k = arraySize / 2; k < arraySize; ++k) {
-        animals[k] = new Cat();
-    }
+    d = k;
+    // const Animal *j = new Dog();
+    // const Animal *i = new Cat();
+    // delete j;
+    // delete i;
 
-    for (int k = 0; k < arraySize; ++k) {
-        animals[k]->makeSound();
-    }
+    // const int arraySize = 4;
+    // Animal *animals[arraySize];
+    // for (int k = 0; k < arraySize / 2; ++k) {
+    //     animals[k] = new Dog();
+    // }
+    // for (int k = arraySize / 2; k < arraySize; ++k) {
+    //     animals[k] = new Cat();
+    // }
 
-    for (int k = 0; k < arraySize; ++k) {
-        delete animals[k];
-    }
+    // for (int k = 0; k < arraySize; ++k) {
+    //     animals[k]->makeSound();
+    // }
+
+    // for (int k = 0; k < arraySize; ++k) {
+    //     delete animals[k];
+    // }
     return 0;
 }
