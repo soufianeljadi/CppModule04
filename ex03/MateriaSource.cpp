@@ -58,16 +58,24 @@ MateriaSource::~MateriaSource()
 
 void MateriaSource::learnMateria(AMateria *aMateria)
 {
-	int i = 0;
-	while (i < 4)
-	{
-        if (!learnedAMateria[i])
-		{
-            learnedAMateria[i] = aMateria;
-            return ;
-        }
-		i++;
+    if (!aMateria)
+        return;
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (learnedAMateria[i] == aMateria)
+            return;
     }
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (!learnedAMateria[i])
+        {
+            learnedAMateria[i] = aMateria;
+            return;
+        }
+    }
+    delete aMateria;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type)
