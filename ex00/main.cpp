@@ -28,9 +28,9 @@ int main()
     std::cout << wrongCat->getType() <<  std::endl;
 
     wrongCat->makeSound();
-    wrongMeta->makeSound();
+    wrongAnimal->makeSound();
 
-    delete wrongMeta;
+    delete wrongAnimal;
     delete wrongCat;
 
     return 0;

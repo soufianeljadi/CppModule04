@@ -20,7 +20,7 @@ Cat &Cat::operator=(const Cat& copy)
     {
         delete brain;
         brain = new Brain(*copy.brain);
-        Animal::operator=(copy);
+        AAnimal::operator=(copy);
     }
     std::cout << GREEN "Cat assignment operator called." DEFAULT<< std::endl;
     return *this;
