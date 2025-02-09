@@ -106,7 +106,7 @@ void Character::unequip(int idx)
 {
     if (idx >= 0 && idx <= 3 && this->inventory[idx])
     {
-        if (unequippedCount < 100)
+        if (unequippedCount < 1000)
         {
             unequippedMaterias[unequippedCount] = this->inventory[idx];
             unequippedCount++;

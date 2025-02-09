@@ -10,7 +10,7 @@ class Character : public ICharacter
 	private:
 		std::string name;
 		AMateria *inventory[4];
-        static AMateria* unequippedMaterias[100]; 
+        static AMateria* unequippedMaterias[1000]; 
         static int unequippedCount;
 	public:
 		Character();
