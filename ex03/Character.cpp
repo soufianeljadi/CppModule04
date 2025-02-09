@@ -15,8 +15,14 @@ Character::Character() : name("default")
 	}
 }
 
-Character::Character(const std::string &name) : name(name), inventory{NULL, NULL, NULL, NULL}
+Character::Character(const std::string &name) : name(name)
 {
+	int i = 0; 
+	while (i < 4)
+	{
+		this->inventory[i] = NULL;
+		i++;
+	}
 	std::cout << "Character Parametrized constructor called" << std::endl;
 }
 

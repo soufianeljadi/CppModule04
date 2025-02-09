@@ -26,7 +26,6 @@ Cure::~Cure()
 
 void Cure::use(ICharacter &target)
 {
-	if(&target)
 		std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }
 

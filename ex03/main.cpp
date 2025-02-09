@@ -30,24 +30,24 @@ int main()
     delete me;
     delete src;
 
-    // std::cout << "\nTrying to create an unknown Materia...\n";
-    // IMateriaSource* src2 = new MateriaSource();
-    // AMateria* unknown = src2->createMateria("fire");
-    // if (!unknown)
-    //     std::cout << "[SUCCESS] Could not create unknown Materia.\n";
+    std::cout << "\nTrying to create an unknown Materia...\n";
+    IMateriaSource* src2 = new MateriaSource();
+    AMateria* unknown = src2->createMateria("fire");
+    if (!unknown)
+        std::cout << "[SUCCESS] Could not create unknown Materia.\n";
 
-    // delete src2;
+    delete src2;
 
-    // std::cout << "\nUsing an invalid Materia slot...\n";
-    // ICharacter* testChar = new Character("test");
-    // ICharacter* dummy = new Character("dummy");
-	// testChar->equip(new Ice());
-	// testChar->unequip(0);
-    // testChar->use(0, *dummy);
-    // testChar->use(5, *dummy);
+    std::cout << "\nUsing an invalid Materia slot...\n";
+    ICharacter* testChar = new Character("test");
+    ICharacter* dummy = new Character("dummy");
+	testChar->equip(new Ice());
+	testChar->unequip(0);
+    testChar->use(0, *dummy);
+    testChar->use(5, *dummy);
 
-    // delete dummy;
-    // delete testChar;
+    delete dummy;
+    delete testChar;
     Character::cleanupUnequippedMaterias();
     return 0;
 }
